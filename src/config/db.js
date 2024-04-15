@@ -9,10 +9,3 @@ const pool = mysql.createPool({
 }).promise();
 
 global.db = pool
-
-pool.query('select * from usuarios')
-    .then(result => {
-        //result es el resultado de la query
-        //siempre es un array con dos posiciones
-        console.log(result[0])
-    })

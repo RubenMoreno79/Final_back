@@ -1,0 +1,33 @@
+@port = 3000
+@host = http://localhost:{{port}}
+
+
+###
+POST {{host}}/api/usuarios/registro
+Content-Type: application/json
+
+{
+    "username": "Rubencio",
+    "email":"ruben1@gmail.com",
+    "password":"12345",
+    "rol": "alumno",
+    "nombre": "ruben",
+    "apellidos":"moreno",
+    "fecha_nacimiento":"2000/02/02",
+    "genero": "m" ,
+    "telefono": "6177171"
+}
+
+###
+GET {{host}}/api/usuarios/registro
+
+###
+POST {{host}}/api/usuarios/login
+Content-Type: application/json
+
+{
+    "email": "",
+    "password": ""
+}
+
+
