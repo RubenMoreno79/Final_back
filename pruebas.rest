@@ -29,3 +29,34 @@ Content-Type: application/json
     "email": "ruben1@gmail.com",
     "password": "12345"
 }
+
+###
+POST {{host}}/api/profesores/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+Content-Type: application/json
+
+{
+    "experiencia": 5
+}
+
+###
+PUT {{host}}/api/profesores/editar
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+Content-Type: application/json
+
+{
+    "experiencia": 10,
+    "username": "pepi", 
+    "email": "pei@gmail.com", 
+    "password": "00000", 
+    "rol": "profesor", 
+    "nombre": "pepita", 
+    "apellidos": "grilla", 
+    "fecha_nacimiento": "1979/03/01", 
+    "genero": "m", 
+    "telefono": "369363636"
+}
+
+###
+DELETE {{host}}/api/profesores/borrar
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
