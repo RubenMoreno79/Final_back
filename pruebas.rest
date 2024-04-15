@@ -30,4 +30,24 @@ Content-Type: application/json
     "password": ""
 }
 
+###
+POST {{host}}/api/cursos/nuevo
+Content-Type: application/json
+
+{
+    "nombre": "Desarrollo personal",
+    "horas": "140",
+    "categoria": "Bienestar personal"
+}
+
+###
+PUT {{host}}api/cursos/editar
+Content-Type: application/json
+
+{
+    "nombre": "Consitucion",
+    "horas": "140",
+    "categoria": "Bienestar personal"
+}
+
 

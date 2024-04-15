@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { insert, select, selectByEmail } = require('../../models/usuarios.model');
+const { insert, selectByEmail } = require('../../models/usuarios.model');
 const bcrypt = require('bcrypt');
 
 
