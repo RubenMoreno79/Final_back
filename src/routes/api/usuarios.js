@@ -19,15 +19,7 @@ router.post('/registro', async (req, res) => {
 
 });
 
-router.get('/registro', async (req, res) => {
-    try {
 
-        const [resultado] = await select();
-        res.json(resultado)
-    } catch (error) {
-        res.json(error)
-    }
-});
 
 router.post('/login', async (req, res) => {
     const { email, password } = req.body;

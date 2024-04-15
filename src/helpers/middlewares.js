@@ -27,4 +27,5 @@ const checkProfesor = async (req, res, next) => {
     return res.status(401).json({ fatal: 'Tienes que ser profesor para acceder' })
 }
 
+
 module.exports = { checkToken, checkProfesor }
