@@ -1,5 +1,5 @@
 const router = require('express').Router();
-const { insert, edit } = require('../../models/cursos.model')
+const { insert, edit, getCurso, borrar } = require('../../models/cursos.model')
 
 
 router.post('/nuevo', async (req, res) => {
@@ -23,6 +23,24 @@ router.put('/editar', async (req, res) => {
         res.json(error)
     }
 })
+
+router.get('/curso', async (req, res) => {
+    try {
+        const [result] = await getCurso(1)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
+
+router.delete('/borrar', async (req, res) => {
+    try {
+        const [result] = await borrar(1)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
 
 
 

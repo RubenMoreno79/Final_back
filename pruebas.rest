@@ -41,7 +41,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}api/cursos/editar
+PUT {{host}}/api/cursos/editar
 Content-Type: application/json
 
 {
@@ -49,5 +49,10 @@ Content-Type: application/json
     "horas": "140",
     "categoria": "Bienestar personal"
 }
+###
+GET {{host}}/api/cursos/curso
+
+###
+DELETE {{host}}/api/cursos/borrar
 
 
