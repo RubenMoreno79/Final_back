@@ -10,8 +10,11 @@ const selectByEmail = (email) => {
     return db.query('select * from usuarios where email = ?', [email])
 };
 
+const selectById = (userId) => {
+    return db.query('Select * FROM usuarios Where id = ?', [userId])
+}
 
 
 
+module.exports = { insert, select, selectById, selectByEmail }
 
-module.exports = { insert, select, selectByEmail }
