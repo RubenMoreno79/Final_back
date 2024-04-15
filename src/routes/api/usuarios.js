@@ -1,6 +1,7 @@
 const router = require('express').Router();
 const { insert, selectByEmail } = require('../../models/usuarios.model');
 const bcrypt = require('bcrypt');
+const { createToken } = require('../../helpers/util');
 
 
 
@@ -27,7 +28,7 @@ router.post('/login', async (req, res) => {
     try {
         const [usuarios] = await selectByEmail(email);
         if (usuarios.lenght === 0) {
-            return res.json({ fatal: 'Email y/0 incorrectos' });
+            return res.json({ fatal: 'Email y/o incorrectos' });
         }
 
         const usuario = usuarios[0];
@@ -36,6 +37,11 @@ router.post('/login', async (req, res) => {
         if (!iguales) {
             return res.json({ fatal: 'Email y/o incorrectos' });
         }
+
+        res.json({
+            success: 'Login correcto',
+            token: createToken(usuario)
+        })
 
     } catch (error) {
         res.json(error);
