@@ -7,8 +7,8 @@ POST {{host}}/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "Alfredo",
-    "email":"Jalfredo1@gmail.com",
+    "username": "lucia",
+    "email":"lucia@gmail.com",
     "password":"12345",
     "rol": "profesor",
     "nombre": "alfredo",
@@ -26,7 +26,7 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "Jalfredo1@gmail.com",
+    "email": "lucia@gmail.com",
     "password": "12345"
 }
 
@@ -57,16 +57,16 @@ DELETE {{host}}/api/cursos/borrar
 
 ###
 POST {{host}}/api/profesores/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNjA5NzJ9.arhMNeBIg3TqZHN6Ce95pOPzYA6OIgjEkepynqLKQsA
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInJvbCI6InByb2Zlc29yIiwiaWF0IjoxNzEzMjY1OTEyfQ.rXuMQGzjCuYrhmwpKO4x_CRLIyVhzZvzm9sm5eC9avY
 Content-Type: application/json
 
 {
-    "experiencia": 5
+    "experiencia": 7
 }
 
 ###
 PUT {{host}}/api/profesores/editar
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6MTQsInJvbCI6InByb2Zlc29yIiwiaWF0IjoxNzEzMjY1OTEyfQ.rXuMQGzjCuYrhmwpKO4x_CRLIyVhzZvzm9sm5eC9avY
 Content-Type: application/json
 
 {
@@ -94,4 +94,30 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoicHJvZmVz
 
 ###
 POST {{host}}/api/alumnos/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNjUwMTl9.iBOFo3adxw447A9idgUKIN6pm95Eb2cqy33GCfGuhBY
+
+###
+DELETE {{host}}/api/alumnos/borrar
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU2NjN9.5SyPJsLaLxOmRi0eJmJ4S1vPrWukGi4kY4jnT7TQAuY
+
+###
+PUT {{host}}/api/alumnos/editar
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNjU1MDJ9.mhEqDmDS8N4cANxj6mw1XMmv7Z1SvcKgw0biVkXS8Q0
+Content-Type: application/json
+
+{
+    "username": "Laura",
+    "email":"laura@gmail.com",
+    "password":"12345",
+    "rol": "alumno",
+    "nombre": "laura",
+    "apellidos":"moreno",
+    "fecha_nacimiento":"2000/03/02",
+    "genero": "m" ,
+    "telefono": "61771711"
+}
+
+
+###
+GET {{host}}/api/alumnos/7
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNjU1MDJ9.mhEqDmDS8N4cANxj6mw1XMmv7Z1SvcKgw0biVkXS8Q0

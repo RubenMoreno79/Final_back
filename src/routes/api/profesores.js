@@ -1,4 +1,5 @@
 const { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor } = require('../../models/profesores.model');
+const bcrypt = require('bcrypt');
 
 const router = require('express').Router();
 
@@ -19,6 +20,9 @@ router.post('/nuevo', async (req, res) => {
 
 
 router.put('/editar', async (req, res) => {
+
+    req.body.password = bcrypt.hashSync(req.body.password, 10)
+
     const profesorId = req.user.id
 
     try {

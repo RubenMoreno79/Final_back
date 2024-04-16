@@ -10,5 +10,16 @@ const selectByAlumnoId = (alumnoId) => {
     )
 };
 
+const selectByAlumnoId2 = (alumnoId) => {
+    return db.query(
+        'select * from usuarios where id = ?', [alumnoId]
+    )
+};
 
-module.exports = { insertAlumnos, selectByAlumnoId }
+const deleteByAlumno = (alumnoId) => {
+    return db.query('delete from usuarios where id = ?', [alumnoId])
+};
+
+
+
+module.exports = { insertAlumnos, selectByAlumnoId, deleteByAlumno, selectByAlumnoId2 }
