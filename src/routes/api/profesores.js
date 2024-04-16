@@ -3,6 +3,7 @@ const { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, de
 const router = require('express').Router();
 
 
+
 router.post('/nuevo', async (req, res) => {
     try {
         const [result] = await insertProfesores(req.body, req.user.id);
@@ -44,5 +45,16 @@ router.delete('/borrar', async (req, res) => {
     }
 });
 
+router.get('/:profesor_id', async (req, res) => {
+    const { profesor_id } = req.params
+
+    try {
+        const profesor = await selectByProfesorId(profesor_id);
+        res.json(profesor);
+    } catch (error) {
+        res.json({ fatal: error.message })
+
+    }
+});
 
 module.exports = router

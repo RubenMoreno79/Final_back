@@ -7,15 +7,15 @@ POST {{host}}/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "Rubencio",
-    "email":"ruben1@gmail.com",
-    "password":"12345",
-    "rol": "alumno",
-    "nombre": "ruben",
+    "username": "Juan",
+    "email":"Juan@gmail.com",
+    "password":"54321",
+    "rol": "profesor",
+    "nombre": "juan",
     "apellidos":"moreno",
-    "fecha_nacimiento":"2000/02/02",
+    "fecha_nacimiento":"2000/03/02",
     "genero": "m" ,
-    "telefono": "6177171"
+    "telefono": "61771711"
 }
 
 ###
@@ -26,8 +26,8 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "ruben1@gmail.com",
-    "password": "12345"
+    "email": "juan@gmail.com",
+    "password": "54321"
 }
 
 ###
@@ -85,3 +85,8 @@ Content-Type: application/json
 ###
 DELETE {{host}}/api/profesores/borrar
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+
+
+### 
+GET {{host}}/api/profesores/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTQyNzh9.PPif7dxctw-qyRO9lMavdur8La97HmvFYGCmmtfAfeU
