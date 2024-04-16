@@ -9,16 +9,12 @@ const selectByProfesorId = (profesorId) => {
     return db.query(
         'select * from profesores where id = ?', [profesorId]
     )
-<<<<<<< HEAD
 }
 const selectProfesorByUsuariosId = (usuarioId) => {
     return db.query(
         'select * from profesores where usuarios_id = ?', [usuarioId]
     )
 }
-=======
-};
->>>>>>> c0ed6e43ed086c2f8aecacfad004f11f7775789d
 
 const updateProfesor = (profesorId, { experiencia }) => {
     return db.query(

@@ -21,5 +21,11 @@ const borrarLeccion = (leccion_id) => {
     )
 }
 
+const getCursoId = (leccion_id) => {
+    return db.query(
+        'select lecciones.curso_id from lecciones where id = ?', [leccion_id]
+    )
+}
 
-module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion }
+
+module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId }

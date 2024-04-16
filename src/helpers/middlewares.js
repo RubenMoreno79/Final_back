@@ -26,7 +26,6 @@ const checkProfesor = async (req, res, next) => {
 
         const [profesores] = await Profesor.selectProfesorByUsuariosId(req.user.id)
         req.profesor = profesores[0]
-        console.log(req.params)
         return next()
     }
     return res.status(401).json({ fatal: 'Tienes que ser profesor para acceder' })

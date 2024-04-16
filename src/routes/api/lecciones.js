@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { checkToken, checkProfesor } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
-const { insertLeccion, editLeccion, getLeccion, borrarLeccion } = require('../../models/lecciones.model')
+const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId } = require('../../models/lecciones.model')
 
 router.post('/nuevo', async (req, res) => {
     //el numero es el id del curso que va enlazado a las lecciones
@@ -14,18 +14,29 @@ router.post('/nuevo', async (req, res) => {
         res.json(error)
     }
 });
-
+//TODO: acabar cosas aqui de checkprofesor y tal
 router.put('/:idLeccion', checkToken, checkProfesor, async (req, res) => {
     const { idLeccion } = req.params
-    const [result2] = await isProfesor(cursoId, req.profesor.id)
-    console.log(result2)
+    const [result3] = await getCursoId(idLeccion)
 
-    try {
-        const [result] = await editLeccion(req.body, idLeccion)
-        res.json(result)
-    } catch (error) {
-        res.json(error)
+    if (result3.length !== 0) {
+        const [result2] = await isProfesor(result3[0].curso_id, req.profesor.id)
+        console.log(result2)
+        if (result2.length !== 0) {
+            try {
+                const [result] = await editLeccion(req.body, idLeccion)
+                res.json(result)
+            } catch (error) {
+                res.json(error)
+            }
+        } else {
+            res.json({ fatal: 'No tienes permisos para editar este curso' })
+        }
+    } else {
+        res.json({ fatal: 'El curso o lección no existe' })
     }
+
+
 });
 
 router.get('/:idLeccion', async (req, res) => {

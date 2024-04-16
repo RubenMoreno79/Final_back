@@ -105,11 +105,12 @@ Content-Type: application/json
     "texto": "hola3"
 }
 ###
-PUT {{host}}/api/lecciones/3
+PUT {{host}}/api/lecciones/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 Content-Type: application/json
 
 {
-    "imagen": "Hola32",
+    "imagen": "Holfsdsfsdfds32",
     "video": "hol32a2",
     "texto": "hol3232a3"
 }
