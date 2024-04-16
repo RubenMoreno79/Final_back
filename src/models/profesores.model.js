@@ -9,7 +9,7 @@ const selectByProfesorId = (profesorId) => {
     return db.query(
         'select * from profesores where id = ?', [profesorId]
     )
-}
+};
 
 const updateProfesor = (profesorId, { experiencia }) => {
     return db.query(
