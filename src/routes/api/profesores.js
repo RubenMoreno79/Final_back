@@ -7,6 +7,7 @@ const router = require('express').Router();
 router.post('/nuevo', async (req, res) => {
     try {
         const [result] = await insertProfesores(req.body, req.user.id);
+        console.log(result)
         const [profesores] = await selectByProfesorId(result.insertId);
 
         res.json(profesores[0]);

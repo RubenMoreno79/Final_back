@@ -7,11 +7,11 @@ POST {{host}}/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "Juan",
-    "email":"Juan@gmail.com",
-    "password":"54321",
+    "username": "Alfredo",
+    "email":"Jalfredo1@gmail.com",
+    "password":"12345",
     "rol": "profesor",
-    "nombre": "juan",
+    "nombre": "alfredo",
     "apellidos":"moreno",
     "fecha_nacimiento":"2000/03/02",
     "genero": "m" ,
@@ -26,8 +26,8 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "juan@gmail.com",
-    "password": "54321"
+    "email": "Jalfredo1@gmail.com",
+    "password": "12345"
 }
 
 ###
@@ -57,7 +57,7 @@ DELETE {{host}}/api/cursos/borrar
 
 ###
 POST {{host}}/api/profesores/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNjA5NzJ9.arhMNeBIg3TqZHN6Ce95pOPzYA6OIgjEkepynqLKQsA
 Content-Type: application/json
 
 {
@@ -90,3 +90,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5v
 ### 
 GET {{host}}/api/profesores/1
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTQyNzh9.PPif7dxctw-qyRO9lMavdur8La97HmvFYGCmmtfAfeU
+
+
+###
+POST {{host}}/api/alumnos/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU2NjN9.5SyPJsLaLxOmRi0eJmJ4S1vPrWukGi4kY4jnT7TQAuY
