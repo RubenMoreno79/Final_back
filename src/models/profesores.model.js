@@ -9,7 +9,13 @@ const selectByProfesorId = (profesorId) => {
     return db.query(
         'select * from profesores where id = ?', [profesorId]
     )
+<<<<<<< HEAD
 }
+=======
+};
+
+
+>>>>>>> 3adc0e957f2db7b9b8fc074bcf7ca53864a58786
 const selectProfesorByUsuariosId = (usuarioId) => {
     return db.query(
         'select * from profesores where usuarios_id = ?', [usuarioId]

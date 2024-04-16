@@ -118,3 +118,18 @@ Content-Type: application/json
 GET {{host}}/api/lecciones/1
 ###
 DELETE {{host}}/api/lecciones/1
+
+
+###
+POST {{host}}/api/preguntas/nuevo
+Content-Type: application/json
+
+{
+    "titulo": "holita",
+    "respuesta_correcta": "si",
+    "respuesta_incorrecta": "no",
+    "respuesta_incorrecta2": "no2"
+}
+
+###
+DELETE {{host}}/api/preguntas/1
