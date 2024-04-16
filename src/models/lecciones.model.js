@@ -21,4 +21,5 @@ const borrarLeccion = (leccion_id) => {
     )
 }
 
+
 module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion }

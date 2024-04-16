@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 const { checkToken, checkProfesor } = require('../../helpers/middlewares');
+const { isProfesor } = require('../../models/cursos.model');
 const { insertLeccion, editLeccion, getLeccion, borrarLeccion } = require('../../models/lecciones.model')
 
 router.post('/nuevo', async (req, res) => {
@@ -14,10 +15,13 @@ router.post('/nuevo', async (req, res) => {
     }
 });
 
-router.put('/editar', async (req, res) => {
-    //El numero es el id de la leccion que se va a editar
+router.put('/:idLeccion', checkToken, checkProfesor, async (req, res) => {
+    const { idLeccion } = req.params
+    const [result2] = await isProfesor(cursoId, req.profesor.id)
+    console.log(result2)
+
     try {
-        const [result] = await editLeccion(req.body, 1)
+        const [result] = await editLeccion(req.body, idLeccion)
         res.json(result)
     } catch (error) {
         res.json(error)
@@ -38,6 +42,7 @@ router.get('/:idLeccion', async (req, res) => {
 
 router.delete('/:idLeccion', checkToken, checkProfesor, async (req, res) => {
     console.log('entra')
+
     const { idLeccion } = req.params
     try {
         const [result] = await borrarLeccion(idLeccion)
