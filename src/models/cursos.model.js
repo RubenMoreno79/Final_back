@@ -1,8 +1,8 @@
-const insert = ({ nombre, horas, categoria, imagen, descripcion }, profesorId) => {
-    return db.query('insert into cursos (nombre, horas, categoria,imagen, descripcion ,profesor_id) values (?,?,?,?,?,?)', [nombre, horas, categoria, imagen, descripcion, profesorId])
+const insert = ({ nombre, horas, categoria, imagen, descripcion, contenido }, profesorId) => {
+    return db.query('insert into cursos (nombre, horas, categoria,imagen, descripcion, contenido ,profesor_id) values (?,?,?,?,?,?, ?)', [nombre, horas, categoria, imagen, descripcion, contenido, profesorId])
 }
-const edit = ({ nombre, horas, categoria, imagen, descripcion }, cursoId) => {
-    return db.query('update cursos set nombre = ?, horas=?, categoria =?, imagen=?, descripcion=? where id = ?', [nombre, horas, categoria, imagen, descripcion, cursoId])
+const edit = ({ nombre, horas, categoria, imagen, descripcion, contenido }, cursoId) => {
+    return db.query('update cursos set nombre = ?, horas=?, categoria =?, imagen=?, descripcion=?, contenido =? where id = ?', [nombre, horas, categoria, imagen, descripcion, contenido, cursoId])
 }
 const borrar = (cursoId) => {
     return db.query('delete from cursos where id = ?', [cursoId])

@@ -15,4 +15,10 @@ const getLeccion = (leccion_id) => {
     )
 }
 
-module.exports = { insertLeccion, editLeccion, getLeccion }
+const borrarLeccion = (leccion_id) => {
+    return db.query(
+        'delete from lecciones where id = ?', [leccion_id]
+    )
+}
+
+module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion }
