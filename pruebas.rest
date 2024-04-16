@@ -59,8 +59,8 @@ Content-Type: application/json
 GET {{host}}/api/cursos/2
 
 ###
-DELETE {{host}}/api/cursos/3
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMjU1MDI3fQ.al2qvlbIThKR3oS1kDzA3k_nu272dGILmrtMOGzcmFk
+DELETE {{host}}/api/cursos/6
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 
 ###
 POST {{host}}/api/profesores/nuevo
@@ -92,3 +92,24 @@ Content-Type: application/json
 ###
 DELETE {{host}}/api/profesores/borrar
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+
+###
+POST {{host}}/api/lecciones/nuevo
+Content-Type: application/json
+
+{
+    "imagen": "Hola",
+    "video": "hola2",
+    "texto": "hola3"
+}
+###
+PUT {{host}}/api/lecciones/editar
+Content-Type: application/json
+
+{
+    "imagen": "Hola32",
+    "video": "hol32a2",
+    "texto": "hol3232a3"
+}
+###
+GET {{host}}/api/lecciones/1
