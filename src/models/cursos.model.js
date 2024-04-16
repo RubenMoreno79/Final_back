@@ -11,5 +11,8 @@ const borrar = (cursoId) => {
 const getCurso = (cursoId) => {
     return db.query('select * from cursos where id = ?', [cursoId])
 }
+const isProfesor = (cursoId, profesorId) => {
+    return db.query('select * from cursos where id = ? and profesor_id = ?', [cursoId, profesorId])
+}
 
-module.exports = { insert, edit, borrar, getCurso }
+module.exports = { insert, edit, borrar, getCurso, isProfesor }

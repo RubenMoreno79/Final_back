@@ -1,6 +1,7 @@
 const jwt = require('jsonwebtoken')
 
 const Usuario = require('../models/usuarios.model')
+const Profesor = require('../models/profesores.model')
 
 const checkToken = async (req, res, next) => {
     if (!req.headers.authorization) {
@@ -22,10 +23,21 @@ const checkToken = async (req, res, next) => {
 
 const checkProfesor = async (req, res, next) => {
     if (req.user.rol === 'profesor') {
+
+        const [profesores] = await Profesor.selectProfesorByUsuariosId(req.user.id)
+        req.profesor = profesores[0]
+        console.log(req.params)
         return next()
     }
     return res.status(401).json({ fatal: 'Tienes que ser profesor para acceder' })
 }
 
+const checkAlumno = async (req, res, next) => {
+    if (req.user.rol === 'alumno') {
+        return next()
+    }
+    return res.status(401).json({ fatal: 'Tienes que ser alumno para acceder' })
+}
 
-module.exports = { checkToken, checkProfesor }
+
+module.exports = { checkToken, checkProfesor, checkAlumno }

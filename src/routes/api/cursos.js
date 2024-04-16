@@ -1,45 +1,59 @@
 const router = require('express').Router();
-const { insert, edit, getCurso, borrar } = require('../../models/cursos.model')
+const { checkProfesor, checkToken } = require('../../helpers/middlewares');
+const { insert, edit, getCurso, borrar, isProfesor } = require('../../models/cursos.model')
 
 
-router.post('/nuevo', async (req, res) => {
-    //Hay que cambiar el nuevo despues de req.user por el id del profesor que va a crear el curso
+router.post('/nuevo', checkToken, checkProfesor, async (req, res) => {
     try {
-        const [result] = await insert(req.body, 1)
-        console.log(result)
+        const [result] = await insert(req.body, req.profesor.id)
         res.json(result)
     } catch (error) {
         res.json(error)
     }
 });
 
-router.put('/editar', async (req, res) => {
-    //Hay que añadir el id del curso desde req.params para cambiar el numero 1
-    console.log('hola')
-    try {
-        const [result] = await edit(req.body, 2)
-        res.json(result)
-    } catch (error) {
-        res.json(error)
+router.put('/:cursoId', checkToken, checkProfesor, async (req, res) => {
+    const { cursoId } = req.params
+    const [result2] = await isProfesor(cursoId, req.profesor.id)
+
+    if (result2[0] !== undefined) {
+        try {
+            const [result] = await edit(req.body, cursoId)
+            res.json(result)
+        } catch (error) {
+            res.json(error)
+        }
+    } else {
+        res.json({ fatal: 'No tienes permisos para editar este Curso' })
     }
 })
 
-router.get('/curso', async (req, res) => {
+router.get('/:cursoId', async (req, res) => {
+    const { cursoId } = req.params
+
     try {
-        const [result] = await getCurso(1)
+        const [result] = await getCurso(cursoId)
         res.json(result)
     } catch (error) {
         res.json(error)
     }
 });
 
-router.delete('/borrar', async (req, res) => {
-    try {
-        const [result] = await borrar(1)
-        res.json(result)
-    } catch (error) {
-        res.json(error)
+router.delete('/:cursoId', checkToken, checkProfesor, async (req, res) => {
+    const { cursoId } = req.params
+    const [result2] = await isProfesor(cursoId, req.profesor.id)
+
+    if (result2[0] !== undefined) {
+        try {
+            const [result] = await borrar(cursoId)
+            res.json(result)
+        } catch (error) {
+            res.json(error)
+        }
+    } else {
+        res.json({ fatal: 'No tienes permisos para borrar este Curso' })
     }
+
 });
 
 

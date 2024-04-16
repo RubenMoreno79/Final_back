@@ -10,6 +10,11 @@ const selectByProfesorId = (profesorId) => {
         'select * from profesores where id = ?', [profesorId]
     )
 }
+const selectProfesorByUsuariosId = (usuarioId) => {
+    return db.query(
+        'select * from profesores where usuarios_id = ?', [usuarioId]
+    )
+}
 
 const updateProfesor = (profesorId, { experiencia }) => {
     return db.query(
@@ -27,4 +32,4 @@ const deleteByProfesor = (profesorId) => {
 
 
 
-module.exports = { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor }
+module.exports = { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor, selectProfesorByUsuariosId }

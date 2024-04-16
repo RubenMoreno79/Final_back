@@ -7,10 +7,10 @@ POST {{host}}/api/usuarios/registro
 Content-Type: application/json
 
 {
-    "username": "Rubencio",
-    "email":"ruben1@gmail.com",
+    "username": "pere",
+    "email":"pere2@gmail.com",
     "password":"12345",
-    "rol": "alumno",
+    "rol": "profesor",
     "nombre": "ruben",
     "apellidos":"moreno",
     "fecha_nacimiento":"2000/02/02",
@@ -26,12 +26,13 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "ruben1@gmail.com",
+    "email": "pere2@gmail.com",
     "password": "12345"
 }
 
 ###
 POST {{host}}/api/cursos/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 Content-Type: application/json
 
 {
@@ -43,21 +44,23 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}/api/cursos/editar
+PUT {{host}}/api/cursos/2
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 Content-Type: application/json
 
 {
-    "nombre": "Consitucion",
+    "nombre": "Confdsaion",
     "horas": "140",
     "categoria": "Bienestar personal",
     "imagen": "Prueba",
-    "descripcion": "Hola que tal estais mis amiguis"
+    "descripcion": "Hola que tal estais mis amsadas"
 }
 ###
-GET {{host}}/api/cursos/curso
+GET {{host}}/api/cursos/2
 
 ###
-DELETE {{host}}/api/cursos/borrar
+DELETE {{host}}/api/cursos/3
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Miwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMjU1MDI3fQ.al2qvlbIThKR3oS1kDzA3k_nu272dGILmrtMOGzcmFk
 
 ###
 POST {{host}}/api/profesores/nuevo
