@@ -1,11 +1,14 @@
 const { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor } = require('../../models/profesores.model');
+const bcrypt = require('bcrypt');
 
 const router = require('express').Router();
+
 
 
 router.post('/nuevo', async (req, res) => {
     try {
         const [result] = await insertProfesores(req.body, req.user.id);
+        console.log(result)
         const [profesores] = await selectByProfesorId(result.insertId);
 
         res.json(profesores[0]);
@@ -17,6 +20,9 @@ router.post('/nuevo', async (req, res) => {
 
 
 router.put('/editar', async (req, res) => {
+
+    req.body.password = bcrypt.hashSync(req.body.password, 10)
+
     const profesorId = req.user.id
 
     try {
@@ -44,5 +50,16 @@ router.delete('/borrar', async (req, res) => {
     }
 });
 
+router.get('/:profesor_id', async (req, res) => {
+    const { profesor_id } = req.params
+
+    try {
+        const profesor = await selectByProfesorId(profesor_id);
+        res.json(profesor);
+    } catch (error) {
+        res.json({ fatal: error.message })
+
+    }
+});
 
 module.exports = router

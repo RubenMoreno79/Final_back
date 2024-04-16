@@ -45,7 +45,7 @@ Content-Type: application/json
 }
 
 ###
-PUT {{host}}/api/cursos/5
+PUT {{host}}/api/cursos/7
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 Content-Type: application/json
 
@@ -105,7 +105,7 @@ Content-Type: application/json
     "texto": "hola3"
 }
 ###
-PUT {{host}}/api/lecciones/editar
+PUT {{host}}/api/lecciones/3
 Content-Type: application/json
 
 {
