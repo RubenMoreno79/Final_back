@@ -17,7 +17,7 @@ router.put('/editar', async (req, res) => {
     //Hay que añadir el id del curso desde req.params para cambiar el numero 1
     console.log('hola')
     try {
-        const [result] = await edit(req.body, 1)
+        const [result] = await edit(req.body, 2)
         res.json(result)
     } catch (error) {
         res.json(error)

@@ -37,7 +37,9 @@ Content-Type: application/json
 {
     "nombre": "Desarrollo personal",
     "horas": "140",
-    "categoria": "Bienestar personal"
+    "categoria": "Bienestar personal",
+    "imagen": "Prueba",
+    "descripcion": "Hola que tal estais mis amiguis"
 }
 
 ###
@@ -47,7 +49,9 @@ Content-Type: application/json
 {
     "nombre": "Consitucion",
     "horas": "140",
-    "categoria": "Bienestar personal"
+    "categoria": "Bienestar personal",
+    "imagen": "Prueba",
+    "descripcion": "Hola que tal estais mis amiguis"
 }
 ###
 GET {{host}}/api/cursos/curso
