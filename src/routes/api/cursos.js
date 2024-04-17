@@ -1,7 +1,26 @@
 const router = require('express').Router();
 const { checkProfesor, checkToken } = require('../../helpers/middlewares');
-const { insert, edit, getCurso, borrar, isProfesor } = require('../../models/cursos.model')
+const { insert, edit, getCurso, borrar, isProfesor, getAll, getCursosByUserId, getByCategory } = require('../../models/cursos.model')
 
+
+router.get('/', async (req, res) => {
+    try {
+        const [result] = await getAll()
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
+
+
+router.get('/category', async (req, res) => {
+    try {
+        const [result] = await getByCategory(req.body.categoria)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
 
 router.post('/nuevo', checkToken, checkProfesor, async (req, res) => {
     try {
@@ -11,6 +30,7 @@ router.post('/nuevo', checkToken, checkProfesor, async (req, res) => {
         res.json(error)
     }
 });
+
 
 router.put('/:cursoId', checkToken, checkProfesor, async (req, res) => {
     const { cursoId } = req.params

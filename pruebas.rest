@@ -58,7 +58,15 @@ Content-Type: application/json
     "contenido": "prueba de contenido para ver que funciona correctamente"
 }
 ###
-GET {{host}}/api/cursos/2
+GET {{host}}/api/cursos/
+
+###
+GET {{host}}/api/cursos/category
+Content-Type: application/json
+
+{
+    "categoria": "Bienestar personal"
+}
 
 ###
 DELETE {{host}}/api/cursos/6

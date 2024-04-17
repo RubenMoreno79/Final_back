@@ -15,4 +15,12 @@ const isProfesor = (cursoId, profesorId) => {
     return db.query('select * from cursos where id = ? and profesor_id = ?', [cursoId, profesorId])
 }
 
-module.exports = { insert, edit, borrar, getCurso, isProfesor }
+const getAll = () => {
+    return db.query('select * from cursos')
+}
+
+const getByCategory = (categoria) => {
+    return db.query('select * from cursos where cursos.categoria = ?', [categoria])
+}
+
+module.exports = { insert, edit, borrar, getCurso, isProfesor, getAll, getByCategory }
