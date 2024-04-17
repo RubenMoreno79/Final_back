@@ -7,8 +7,6 @@ const router = require('express').Router();
 //TODO: Que informacion se manda y como desde el front para que suba el progreso y la  nota mirar como se envia
 
 router.get('/todos', checkAlumno, async (req, res) => {
-    console.log('entra')
-    console.log(req.alumno)
     //poner como sacar el id del alumno al enviar la peticion
     try {
         const [result] = await getbyAlumnoId(req.alumno.id)

@@ -27,5 +27,10 @@ const getCursoId = (leccion_id) => {
     )
 }
 
+const getAllLecciones = (curso_id) => {
+    return db.query(
+        'select * from lecciones where curso_id = ?', [curso_id]
+    )
+}
 
-module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId }
+module.exports = { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones }
