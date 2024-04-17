@@ -8,9 +8,9 @@ Content-Type: application/json
 
 {
     "username": "pere",
-    "email":"pere2@gmail.com",
+    "email":"pere5@gmail.com",
     "password":"12345",
-    "rol": "profesor",
+    "rol": "alumno",
     "nombre": "ruben",
     "apellidos":"moreno",
     "fecha_nacimiento":"2000/02/02",
@@ -26,7 +26,7 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "pere2@gmail.com",
+    "email": "pere5@gmail.com",
     "password": "12345"
 }
 
@@ -116,7 +116,7 @@ Content-Type: application/json
 ###
 
 POST {{host}}/api/lecciones/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzQyNDcwfQ.2TCGE5XuirsCZySNjj9sYv1OJTJ6eB-Bzm0aGucq5H4
 Content-Type: application/json
 
 {
@@ -153,3 +153,24 @@ Content-Type: application/json
 
 ###
 DELETE {{host}}/api/preguntas/1
+###
+POST {{host}}/api/alumnos/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
+Content-Type: application/json
+
+{
+    "foto": "prueba2"
+}
+
+###
+GET {{host}}/api/alumnoscursos/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDIyfQ.U8Va6Fz4cyw0OgPj2ykXrzun_6qgXL0X3jyM3pQq-Tk
+###
+GET {{host}}/api/alumnoscursos/todos
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
+###
+PUT {{host}}/api/alumnoscursos/newprogress
+###
+PUT {{host}}/api/alumnoscursos/finish
+###
+PUT {{host}}/api/alumnoscursos/nota

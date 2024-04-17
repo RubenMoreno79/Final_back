@@ -32,13 +32,10 @@ router.put('/update/:idLeccion', checkToken, checkProfesor, async (req, res) => 
     } else {
         res.json({ fatal: 'El curso o lección no existe' })
     }
-
-
 });
 
 router.get('/:idLeccion', async (req, res) => {
     const { idLeccion } = req.params
-    console.log(idLeccion)
 
     try {
         const [result] = await getLeccion(idLeccion)

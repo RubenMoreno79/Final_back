@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
-const { insertAlumnos, selectByAlumnoId, deleteByAlumno, selectByAlumnoId2 } = require("../../models/alumnos.model");
+
+const { insertAlumnos, deleteByAlumno, selectByAlumnoId2 } = require("../../models/alumnos.model");
 const { updateUsuarios } = require("../../models/profesores.model");
 const bcrypt = require('bcrypt');
 
@@ -8,11 +9,10 @@ const bcrypt = require('bcrypt');
 
 
 router.post('/nuevo', async (req, res) => {
+    console.log(req.user)
     try {
-        const [result] = await insertAlumnos(req.user.id);
-        const [alumnos] = await selectByAlumnoId(result.insertId)
-        res.json(alumnos[0]);
-
+        const [result] = await insertAlumnos(req.user.id, req.body.foto);
+        res.json(result);
     } catch (error) {
         res.json({ fatal: error.message })
     }
@@ -47,13 +47,12 @@ router.put('/editar', async (req, res) => {
 });
 
 
-router.get('/:alumno_id', async (req, res) => {
+router.get('/alumno', async (req, res) => {
 
-    const { alumno_id } = req.params
 
     try {
-        const [alumno] = await selectByAlumnoId2(alumno_id);
-        res.json(alumno);
+
+        res.json(req.user);
     } catch (error) {
         res.json({ fatal: error.message })
 

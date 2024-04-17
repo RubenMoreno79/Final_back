@@ -1,4 +1,4 @@
-const { checkToken } = require('../helpers/middlewares.js');
+const { checkToken, checkAlumno } = require('../helpers/middlewares.js');
 
 const router = require('express').Router()
 
@@ -8,5 +8,6 @@ router.use('/cursos', require('./api/cursos.js'))
 router.use('/lecciones', checkToken, require('./api/lecciones.js'))
 router.use('/alumnos', checkToken, require('./api/alumnos.js'));
 router.use('/preguntas', require('./api/preguntas.js'));
+router.use('/alumnoscursos', checkToken, require('./api/alumnos-cursos.js'))
 
 module.exports = router
