@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 
+const { checkAlumno } = require('../../helpers/middlewares');
 const { insertAlumnos, deleteByAlumno, selectByAlumnoId2 } = require("../../models/alumnos.model");
 const { updateUsuarios } = require("../../models/profesores.model");
 const bcrypt = require('bcrypt');
