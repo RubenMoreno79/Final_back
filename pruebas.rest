@@ -65,7 +65,7 @@ GET {{host}}/api/cursos/category
 Content-Type: application/json
 
 {
-    "categoria": "Bienestar personal"
+    "categoria": "Cantar"
 }
 
 ###
@@ -105,6 +105,18 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5v
 
 ###
 POST {{host}}/api/lecciones/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
+Content-Type: application/json
+
+{
+    "imagen": "Hola",
+    "video": "hola2",
+    "texto": "hola3"
+}
+###
+
+POST {{host}}/api/lecciones/nuevo
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
 Content-Type: application/json
 
 {
