@@ -1,4 +1,4 @@
-const { checkToken, checkAlumno } = require('../helpers/middlewares.js');
+const { checkToken } = require('../helpers/middlewares.js');
 
 const router = require('express').Router()
 
