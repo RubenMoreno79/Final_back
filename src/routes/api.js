@@ -7,7 +7,7 @@ router.use('/profesores', checkToken, require('./api/profesores.js'))
 router.use('/cursos', require('./api/cursos.js'))
 router.use('/lecciones', checkToken, require('./api/lecciones.js'))
 router.use('/alumnos', checkToken, require('./api/alumnos.js'));
-router.use('/preguntas', require('./api/preguntas.js'));
+router.use('/preguntas', checkToken, require('./api/preguntas.js'));
 router.use('/alumnoscursos', checkToken, require('./api/alumnos-cursos.js'))
 
 module.exports = router

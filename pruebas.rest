@@ -8,9 +8,9 @@ Content-Type: application/json
 
 {
     "username": "pere",
-    "email":"pere5@gmail.com",
+    "email":"pere6@gmail.com",
     "password":"12345",
-    "rol": "alumno",
+    "rol": "profesor",
     "nombre": "ruben",
     "apellidos":"moreno",
     "fecha_nacimiento":"2000/02/02",
@@ -26,13 +26,13 @@ POST {{host}}/api/usuarios/login
 Content-Type: application/json
 
 {
-    "email": "pere5@gmail.com",
+    "email": "pere6@gmail.com",
     "password": "12345"
 }
 
 ###
 POST {{host}}/api/cursos/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 Content-Type: application/json
 
 {
@@ -74,7 +74,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVz
 
 ###
 POST {{host}}/api/profesores/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 Content-Type: application/json
 
 {
@@ -189,7 +189,8 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5v
 GET {{host}}/api/alumnoscursos/info/8
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
 ###
-POST {{host}}/api/preguntas/nuevo/10
+POST {{host}}/api/preguntas/nuevo/11
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 Content-Type: application/json
 
 {
@@ -200,8 +201,10 @@ Content-Type: application/json
 }
 ###
 DELETE {{host}}/api/preguntas/borrar/1
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 ###
-PUT {{host}}/api/preguntas/editar/2
+PUT {{host}}/api/preguntas/editar/10
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 Content-Type: application/json
 
 {
@@ -213,3 +216,5 @@ Content-Type: application/json
 ###
 GET {{host}}/api/alumnos/alumno
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
+###
+GET {{host}}/api/preguntas/all/10
