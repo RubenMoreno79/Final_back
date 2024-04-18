@@ -180,7 +180,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5v
 GET {{host}}/api/alumnos/alumno
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
 ###
-GET {{host}}/api/lecciones/all
+GET {{host}}/api/lecciones/all/2
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
 ###
 POST {{host}}/api/alumnoscursos/nuevo
@@ -200,7 +200,7 @@ Content-Type: application/json
     "respuesta_incorrecta2": "esta mal"
 }
 ###
-DELETE {{host}}/api/preguntas/borrar/1
+DELETE {{host}}/api/preguntas/borrar/9
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 ###
 PUT {{host}}/api/preguntas/editar/10
@@ -218,3 +218,4 @@ GET {{host}}/api/alumnos/alumno
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
 ###
 GET {{host}}/api/preguntas/all/10
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU

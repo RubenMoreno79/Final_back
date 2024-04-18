@@ -21,6 +21,11 @@ const getCursoId = (preguntaId) => {
         'select curso_id from preguntas_examenes where id = ?', [preguntaId]
     )
 }
+const isCurso = (cursoId) => {
+    return db.query(
+        'select * from cursos where id = ?', [cursoId]
+    )
+}
 
 
-module.exports = { insert, borrarPreguntas, editarPreguntas, getAllPreguntas, getCursoId }
+module.exports = { insert, borrarPreguntas, editarPreguntas, getAllPreguntas, getCursoId, isCurso }
