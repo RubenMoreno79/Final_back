@@ -1,7 +1,3 @@
-//TODO: Añadir curso al alumno
-//borrar cursos si quieres
-//consultar toda la informacion del curso que tenga el alumno(progreso, finalizado, nota)
-//consultar todos los cursos que tenga el alumno
 
 const getbyAlumnoId = (alumnoId) => {
     return db.query(
@@ -30,4 +26,16 @@ const borrarCurso = (curso_id, alumno_id) => {
     )
 }
 
-module.exports = { getbyAlumnoId, updateProgreso, updateFinalizado, updateNota, borrarCurso }
+const crearCursoAlumno = (curso_id, alumno_id) => {
+    return db.query(
+        'insert into alumnos_has_cursos (alumno_id, cursos_id) values(?,?)', [alumno_id, curso_id]
+    )
+}
+
+const getAllCursoFromAlumno = (curso_id, alumno_id) => {
+    return db.query(
+        'select * from alumnos_has_cursos where cursos_id = ? and alumno_id = ?', [curso_id, alumno_id]
+    )
+}
+
+module.exports = { getbyAlumnoId, updateProgreso, updateFinalizado, updateNota, borrarCurso, crearCursoAlumno, getAllCursoFromAlumno }

@@ -1,10 +1,10 @@
 const { checkAlumno } = require('../../helpers/middlewares');
-const { getbyAlumnoId, updateProgreso, updateFinalizado, updateNota, borrarCurso } = require('../../models/alumnos-cursos.model');
+const { getbyAlumnoId, updateProgreso, updateFinalizado, updateNota, borrarCurso, crearCursoAlumno, getAllCursoFromAlumno } = require('../../models/alumnos-cursos.model');
 
 const router = require('express').Router();
 
-//TODO: Buscar de donde cae la informacion para el curso id
-//TODO: Que informacion se manda y como desde el front para que suba el progreso y la  nota mirar como se envia
+
+
 
 router.get('/todos', checkAlumno, async (req, res) => {
     //poner como sacar el id del alumno al enviar la peticion
@@ -16,36 +16,60 @@ router.get('/todos', checkAlumno, async (req, res) => {
     }
 });
 
-router.put('/newprogress', checkAlumno, async (req, res) => {
+router.put('/newprogress/:progress/:idcurso', checkAlumno, async (req, res) => {
+    const { progress, idcurso } = req.params
     try {
-        const [result] = await updateProgreso(10, 8, req.alumno.id)
+        const [result] = await updateProgreso(progress, idcurso, req.alumno.id)
         res.json(result)
     } catch (error) {
         res.json(error)
     }
 });
 
-router.put('/finish', checkAlumno, async (req, res) => {
+router.put('/finish/:idcurso', checkAlumno, async (req, res) => {
+    const { idcurso } = req.params
     try {
-        const [result] = await updateFinalizado(8, req.alumno.id)
+        const [result] = await updateFinalizado(idcurso, req.alumno.id)
         res.json(result)
     } catch (error) {
         res.json(error)
     }
 });
 
-router.put('/nota', checkAlumno, async (req, res) => {
+router.put('/nota/:nota/:idcurso', checkAlumno, async (req, res) => {
+    const { nota, idcurso } = req.params
     try {
-        const [result] = await updateNota(7, 8, req.alumno.id)
+        const [result] = await updateNota(nota, idcurso, req.alumno.id)
         res.json(result)
     } catch (error) {
         res.json(error)
     }
 });
 
-router.delete('/borrar', checkAlumno, async (req, res) => {
+router.delete('/borrar/:idcurso', checkAlumno, async (req, res) => {
+    const { idcurso } = req.params
     try {
-        const [result] = await borrarCurso(1, req.alumno.id)
+        const [result] = await borrarCurso(idcurso, req.alumno.id)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
+
+router.post('/nuevo/:idcurso', checkAlumno, async (req, res) => {
+    const { idcurso } = req.params
+    try {
+        const [result] = await crearCursoAlumno(idcurso, req.alumno.id)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
+
+router.get('/info/:idcurso', checkAlumno, async (req, res) => {
+    const { idcurso } = req.params
+    try {
+        const [result] = await getAllCursoFromAlumno(idcurso, req.alumno.id)
         res.json(result)
     } catch (error) {
         res.json(error)
