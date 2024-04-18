@@ -10,9 +10,9 @@ const selectByAlumnoId = (alumnoId) => {
     )
 };
 
-const selectByAlumnoId2 = (alumnoId) => {
+const selectByAlumnoId2 = (usuarioId) => {
     return db.query(
-        'select * from usuarios where id = ?', [alumnoId]
+        'select * from usuarios where id = ?', [usuarioId]
     )
 };
 

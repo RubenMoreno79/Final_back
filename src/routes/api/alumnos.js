@@ -1,6 +1,7 @@
 const router = require('express').Router();
 
 
+const { checkAlumno } = require('../../helpers/middlewares');
 const { insertAlumnos, deleteByAlumno, selectByAlumnoId2 } = require("../../models/alumnos.model");
 const { updateUsuarios } = require("../../models/profesores.model");
 const bcrypt = require('bcrypt');
@@ -51,8 +52,8 @@ router.get('/alumno', async (req, res) => {
 
 
     try {
-
-        res.json(req.user);
+        const [result] = await selectByAlumnoId2(req.user.id)
+        res.json(result);
     } catch (error) {
         res.json({ fatal: error.message })
 

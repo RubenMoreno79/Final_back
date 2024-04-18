@@ -2,7 +2,7 @@ const router = require('express').Router();
 
 const { checkToken, checkProfesor } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
-const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId } = require('../../models/lecciones.model')
+const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones } = require('../../models/lecciones.model')
 
 router.post('/new/:idCurso', checkToken, checkProfesor, async (req, res) => {
     const { idCurso } = req.params
@@ -65,6 +65,16 @@ router.delete('/delete/:idLeccion', checkToken, checkProfesor, async (req, res) 
         res.json({ fatal: 'El curso o lección no existe' })
     }
 
+});
+
+router.get('/all/:curso_id', async (req, res) => {
+    const { curso_id } = req.params
+    try {
+        const [result] = await getAllLecciones(curso_id)
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
 });
 
 
