@@ -36,7 +36,9 @@ router.delete('/borrar', async (req, res) => {
 
 router.put('/editar', async (req, res) => {
 
-    req.body.password = bcrypt.hashSync(req.body.password, 10)
+    if (req.body.password) {
+        req.body.password = bcrypt.hashSync(req.body.password, 10)
+    }
 
     try {
         const [result] = await updateUsuarios(req.user.id, req.body);

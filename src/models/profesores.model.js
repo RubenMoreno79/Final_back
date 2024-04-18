@@ -22,8 +22,13 @@ const updateProfesor = (profesorId, { experiencia }) => {
     );
 };
 
-const updateUsuarios = (usuarios_id, { username, email, password, rol, nombre, apellidos, fecha_nacimiento, genero, telefono }) => {
-    return db.query('update usuarios set username=?, email=?, password=?, rol=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, email, password, rol, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
+const updateUsuarios = (usuarios_id, { username, email, password, nombre, apellidos, fecha_nacimiento, genero, telefono }) => {
+    if (password) {
+        return db.query('update usuarios set username=?, email=?, password=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, email, password, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
+    } else {
+        return db.query('update usuarios set username=?, email=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, email, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
+    }
+
 };
 
 const deleteByProfesor = (profesorId) => {
