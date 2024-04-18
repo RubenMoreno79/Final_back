@@ -3,11 +3,7 @@ const { getbyAlumnoId, updateProgreso, updateFinalizado, updateNota, borrarCurso
 
 const router = require('express').Router();
 
-
-
-
 router.get('/todos', checkAlumno, async (req, res) => {
-    //poner como sacar el id del alumno al enviar la peticion
     try {
         const [result] = await getbyAlumnoId(req.alumno.id)
         res.json(result)
