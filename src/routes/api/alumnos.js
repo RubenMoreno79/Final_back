@@ -52,8 +52,8 @@ router.get('/alumno', async (req, res) => {
 
 
     try {
-
-        res.json(req.user);
+        const [result] = await selectByAlumnoId2(req.user.id)
+        res.json(result);
     } catch (error) {
         res.json({ fatal: error.message })
 
