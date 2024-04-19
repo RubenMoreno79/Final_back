@@ -1,14 +1,14 @@
 
-const insert = ({ titulo, respuesta_correcta, respuesta_incorrecta, respuesta_incorrecta2 }, cursoId) => {
-    return db.query('insert into preguntas_examenes (titulo, respuesta_correcta, respuesta_incorrecta, respuesta_incorrecta2, curso_id) values (?,?,?,?,?)', [titulo, respuesta_correcta, respuesta_incorrecta, respuesta_incorrecta2, cursoId])
+const insert = ({ titulo, enunciado, respuesta_correcta, respuesta_incorrecta1, respuesta_incorrecta2, respuesta_incorrecta3 }, cursoId) => {
+    return db.query('insert into preguntas_examenes (titulo,enunciado, respuesta_correcta, respuesta_incorrecta1, respuesta_incorrecta2,respuesta_incorrecta3, curso_id) values (?,?,?,?,?,?,?)', [titulo, enunciado, respuesta_correcta, respuesta_incorrecta1, respuesta_incorrecta2, respuesta_incorrecta3, cursoId])
 };
 
 const borrarPreguntas = (preguntaId) => {
     return db.query('delete from preguntas_examenes where id = ?', [preguntaId])
 }
 
-const editarPreguntas = ({ titulo, respuesta_correcta, respuesta_incorrecta, respuesta_incorrecta2 }, preguntaId) => {
-    return db.query('update  preguntas_examenes set titulo = ?,respuesta_correcta = ?, respuesta_incorrecta = ?, respuesta_incorrecta2  =? where id =?', [titulo, respuesta_correcta, respuesta_incorrecta, respuesta_incorrecta2, preguntaId])
+const editarPreguntas = ({ titulo, enunciado, respuesta_correcta, respuesta_incorrecta1, respuesta_incorrecta2, respuesta_incorrecta3 }, preguntaId) => {
+    return db.query('update  preguntas_examenes set titulo = ?,enunciado =?,respuesta_correcta = ?, respuesta_incorrecta1 = ?, respuesta_incorrecta2 =?, respuesta_incorrecta3  =? where id =?', [titulo, enunciado, respuesta_correcta, respuesta_incorrecta1, respuesta_incorrecta2, respuesta_incorrecta3, preguntaId])
 }
 
 const getAllPreguntas = (cursoid) => {
@@ -25,6 +25,9 @@ const isCurso = (cursoId) => {
     return db.query(
         'select * from cursos where id = ?', [cursoId]
     )
+}
+const isAlumno = (cursoId, alumnoId) => {
+
 }
 
 

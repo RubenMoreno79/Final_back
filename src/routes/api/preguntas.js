@@ -1,7 +1,7 @@
 const router = require('express').Router();
 
 
-const { checkProfesor } = require('../../helpers/middlewares');
+const { checkProfesor, checkAlumno } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
 const { insert, borrarPreguntas, editarPreguntas, getAllPreguntas, getCursoId, isCurso } = require('../../models/preguntas.model')
 
@@ -57,7 +57,6 @@ router.put('/editar/:preguntaid', checkProfesor, async (req, res) => {
 
     if (result3.length !== 0) {
         const [result2] = await isProfesor(result3[0].curso_id, req.profesor.id)
-        console.log(result2)
         if (result2.length !== 0) {
             try {
                 const [result] = await editarPreguntas(req.body, preguntaid)
@@ -75,8 +74,8 @@ router.put('/editar/:preguntaid', checkProfesor, async (req, res) => {
     }
 
 });
-//TODO: Comprobar que el alumno pueda ver el curso
-router.get('/all/:cursoid', async (req, res) => {
+//TODO: Comprobar que el alumno pueda ver el curso y que este dentro del curso
+router.get('/all/alumnos/:cursoid', checkAlumno, async (req, res) => {
     const { cursoid } = req.params
     const [result3] = await isCurso(cursoid)
     console.log(result3)
@@ -87,6 +86,30 @@ router.get('/all/:cursoid', async (req, res) => {
         } catch (error) {
             res.json(error)
         }
+    } else {
+        res.json({ fatal: 'El curso no existe' })
+    }
+
+});
+
+router.get('/all/profesores/:cursoid', checkProfesor, async (req, res) => {
+    const { cursoid } = req.params
+    const [result3] = await isCurso(cursoid)
+    console.log(result3)
+    if (result3.length !== 0) {
+        const [result2] = await isProfesor(cursoid, req.profesor.id)
+        if (result2.length !== 0) {
+            try {
+                const [result] = await getAllPreguntas(cursoid)
+                res.json(result)
+            } catch (error) {
+                res.json(error)
+            }
+
+        } else {
+            res.json({ fatal: 'No tienes permiso para ver estas preguntas ya que no eres su profesor' })
+        }
+
     } else {
         res.json({ fatal: 'El curso no existe' })
     }
