@@ -19,6 +19,25 @@ Content-Type: application/json
 }
 
 ###
+PUT {{host}}/api/alumnos/editar
+Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
+Content-Type: application/json
+
+{
+    "username": "pere",
+    "email":"pere6@gmail.com",
+    "password":"12345",
+    "rol": "alumno",
+    "nombre": "ruben",
+    "apellidos":"moreno",
+    "fecha_nacimiento":"2000/02/02",
+    "genero": "m" ,
+    "telefono": "6177171",
+    "foto": "prueba de foto",
+    "campo_interes": "prueba de campo interes"
+
+}
+###
 GET {{host}}/api/usuarios/registro
 
 ###
@@ -189,7 +208,7 @@ Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5v
 GET {{host}}/api/alumnoscursos/info/8
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
 ###
-POST {{host}}/api/preguntas/nuevo/7
+POST {{host}}/api/preguntas/nuevo/11
 Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
 Content-Type: application/json
 
@@ -197,7 +216,7 @@ Content-Type: application/json
     "titulo": "Preguntas de examen",
     "enunciado": "Esto es un enunciado",
     "respuesta_correcta": "esta bien",
-    "respuesta_incorrecta": "esta mal",
+    "respuesta_incorrecta1": "esta mal",
     "respuesta_incorrecta2": "esta mal",
     "respuesta_incorrecta3": "esta mal"
 }

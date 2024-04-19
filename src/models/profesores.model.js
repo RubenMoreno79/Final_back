@@ -22,11 +22,11 @@ const updateProfesor = (profesorId, { experiencia }) => {
     );
 };
 
-const updateUsuarios = (usuarios_id, { username, email, password, nombre, apellidos, fecha_nacimiento, genero, telefono }) => {
+const updateUsuarios = (usuarios_id, { username, password, nombre, apellidos, fecha_nacimiento, genero, telefono }) => {
     if (password) {
-        return db.query('update usuarios set username=?, email=?, password=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, email, password, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
+        return db.query('update usuarios set username=?, password=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, password, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
     } else {
-        return db.query('update usuarios set username=?, email=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, email, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
+        return db.query('update usuarios set username=?, nombre=?, apellidos=?, fecha_nacimiento=?, genero=?, telefono=? where id = ?', [username, nombre, apellidos, fecha_nacimiento, genero, telefono, usuarios_id])
     }
 
 };

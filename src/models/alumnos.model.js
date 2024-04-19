@@ -1,6 +1,6 @@
-const insertAlumnos = (usuarios_id, foto) => {
+const insertAlumnos = (usuarios_id, { foto, campoInteres }) => {
     return db.query(
-        'insert into alumnos (usuarios_id, foto) values (?,?)', [usuarios_id, foto]
+        'insert into alumnos (usuarios_id, foto, campoInteres) values (?,?,?)', [usuarios_id, foto, campoInteres]
     )
 };
 
@@ -9,6 +9,11 @@ const selectByAlumnoId = (alumnoId) => {
         'select * from alumnos where id = ?', [alumnoId]
     )
 };
+const updateAlumno = (usuarioId, { foto, campoInteres }) => {
+    return db.query(
+        'update alumnos set foto = ?, campoInteres = ? where usuarios_id = ?', [foto, campoInteres, usuarioId]
+    )
+}
 
 const selectByAlumnoId2 = (usuarioId) => {
     return db.query(
@@ -28,4 +33,4 @@ const getAlumnoByUsuariosId = (usuarioId) => {
 
 
 
-module.exports = { insertAlumnos, selectByAlumnoId, deleteByAlumno, selectByAlumnoId2, getAlumnoByUsuariosId }
+module.exports = { insertAlumnos, selectByAlumnoId, deleteByAlumno, selectByAlumnoId2, getAlumnoByUsuariosId, updateAlumno }
