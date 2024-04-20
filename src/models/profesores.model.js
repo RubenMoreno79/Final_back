@@ -1,9 +1,15 @@
 
-const insertProfesores = ({ experiencia }, usuarios_id) => {
+const insertProfesores = ({ experiencia, especialidad, foto, descripcion_experiencia }, usuarios_id) => {
     return db.query(
-        'insert into profesores (experiencia, usuarios_id) values (?, ?)', [experiencia, usuarios_id]
+        'insert into profesores (experiencia, usuarios_id, especialidad,foto, descripcion_experiencia) values (?, ?, ?, ?, ?)', [experiencia, usuarios_id, especialidad, foto, descripcion_experiencia]
     )
 };
+
+const selectUsuario = (usuario_id) => {
+    return db.query(
+        'select * from usuarios where id = ?', [usuario_id]
+    )
+}
 
 const selectByProfesorId = (profesorId) => {
     return db.query(
@@ -16,9 +22,9 @@ const selectProfesorByUsuariosId = (usuarioId) => {
     )
 }
 
-const updateProfesor = (profesorId, { experiencia }) => {
+const updateProfesor = (profesorId, { experiencia, especialidad, foto, descripcion_experiencia }) => {
     return db.query(
-        'update profesores set experiencia = ? where usuarios_id = ?', [experiencia, profesorId]
+        'update profesores set experiencia = ?, especialidad = ?, foto = ?, descripcion_experiencia = ?  where usuarios_id = ?', [experiencia, especialidad, foto, descripcion_experiencia, profesorId]
     );
 };
 
@@ -37,4 +43,4 @@ const deleteByProfesor = (profesorId) => {
 
 
 
-module.exports = { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor, selectProfesorByUsuariosId }
+module.exports = { updateProfesor, insertProfesores, selectByProfesorId, updateUsuarios, deleteByProfesor, selectProfesorByUsuariosId, selectUsuario }

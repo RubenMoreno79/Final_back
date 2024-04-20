@@ -28,14 +28,14 @@ router.post('/login', async (req, res) => {
     try {
         const [usuarios] = await selectByEmail(email);
         if (usuarios.lenght === 0) {
-            return res.json({ fatal: 'Email y/o incorrectos' });
+            return res.json({ fatal: 'Email y/o constraseña incorrectos' });
         }
 
         const usuario = usuarios[0];
 
         const iguales = bcrypt.compareSync(password, usuario.password);
         if (!iguales) {
-            return res.json({ fatal: 'Email y/o incorrectos' });
+            return res.json({ fatal: 'Email y/o constraseña incorrectos' });
         }
 
         res.json({

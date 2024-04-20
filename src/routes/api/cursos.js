@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { checkProfesor, checkToken } = require('../../helpers/middlewares');
-const { insert, edit, getCurso, borrar, isProfesor, getAll, getCursosByUserId, getByCategory } = require('../../models/cursos.model')
+const { insert, edit, getCurso, borrar, isProfesor, getAll, getByCategory } = require('../../models/cursos.model')
 
 
 router.get('/', async (req, res) => {
