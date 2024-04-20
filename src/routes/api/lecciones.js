@@ -1,10 +1,10 @@
 const router = require('express').Router();
 
-const { checkToken, checkProfesor } = require('../../helpers/middlewares');
+const { checkToken, checkProfesor, checkAlumno } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
-const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones } = require('../../models/lecciones.model')
+const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones, isAlumno } = require('../../models/lecciones.model')
 
-router.post('/new/:idCurso', checkToken, checkProfesor, async (req, res) => {
+router.post('/new/:idCurso', checkProfesor, async (req, res) => {
     const { idCurso } = req.params
     try {
         const [result] = await insertLeccion(req.body, idCurso)
@@ -13,7 +13,7 @@ router.post('/new/:idCurso', checkToken, checkProfesor, async (req, res) => {
         res.json(error)
     }
 });
-router.put('/update/:idLeccion', checkToken, checkProfesor, async (req, res) => {
+router.put('/update/:idLeccion', checkProfesor, async (req, res) => {
     const { idLeccion } = req.params
     const [result3] = await getCursoId(idLeccion)
 
@@ -45,7 +45,7 @@ router.get('/:idLeccion', async (req, res) => {
     }
 });
 
-router.delete('/delete/:idLeccion', checkToken, checkProfesor, async (req, res) => {
+router.delete('/delete/:idLeccion', checkProfesor, async (req, res) => {
     const { idLeccion } = req.params
     const [result3] = await getCursoId(idLeccion)
 
@@ -67,13 +67,33 @@ router.delete('/delete/:idLeccion', checkToken, checkProfesor, async (req, res) 
 
 });
 
-router.get('/all/:curso_id', async (req, res) => {
+router.get('/all/alumnos/:curso_id', checkAlumno, async (req, res) => {
     const { curso_id } = req.params
-    try {
-        const [result] = await getAllLecciones(curso_id)
-        res.json(result)
-    } catch (error) {
-        res.json(error)
+    const [result2] = await isAlumno(curso_id, req.alumno.id)
+    if (result2 !== 0) {
+        try {
+            const [result] = await getAllLecciones(curso_id)
+            res.json(result)
+        } catch (error) {
+            res.json(error)
+        }
+    } else {
+        res.json({ fatal: 'No tienes permiso para acceder a este curso' })
+    }
+});
+
+router.get('/all/profesores/:curso_id', async (req, res) => {
+    const { curso_id } = req.params
+    const [result2] = await isProfesor(curso_id, req.user.id)
+    if (result2 !== 0) {
+        try {
+            const [result] = await getAllLecciones(curso_id)
+            res.json(result)
+        } catch (error) {
+            res.json(error)
+        }
+    } else {
+        res.json({ fatal: 'No tienes permiso para acceder a este curso' })
     }
 });
 
