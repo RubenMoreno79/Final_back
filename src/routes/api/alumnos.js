@@ -10,7 +10,7 @@ const bcrypt = require('bcrypt');
 
 
 router.post('/nuevo', async (req, res) => {
-    console.log(req.user)
+
     try {
         const [result] = await insertAlumnos(req.user.id, req.body);
         res.json(result);

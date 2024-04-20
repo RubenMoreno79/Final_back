@@ -25,7 +25,6 @@ Content-Type: application/json
 
 {
     "username": "pere",
-    "email":"pere6@gmail.com",
     "password":"12345",
     "rol": "alumno",
     "nombre": "ruben",
@@ -34,7 +33,7 @@ Content-Type: application/json
     "genero": "m" ,
     "telefono": "6177171",
     "foto": "prueba de foto",
-    "campo_interes": "prueba de campo interes"
+    "campoInteres": "prueba dedsfaaaaaaa interes"
 
 }
 ###

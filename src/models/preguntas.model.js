@@ -27,8 +27,10 @@ const isCurso = (cursoId) => {
     )
 }
 const isAlumno = (cursoId, alumnoId) => {
-
+    return db.query(
+        'select * from alumnos_has_cursos where cursos_id = ? and alumno_id = ?', [cursoId, alumnoId]
+    )
 }
 
 
-module.exports = { insert, borrarPreguntas, editarPreguntas, getAllPreguntas, getCursoId, isCurso }
+module.exports = { insert, borrarPreguntas, editarPreguntas, getAllPreguntas, getCursoId, isCurso, isAlumno }
