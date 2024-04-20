@@ -1,6 +1,6 @@
 const router = require('express').Router();
 
-const { checkToken, checkProfesor, checkAlumno } = require('../../helpers/middlewares');
+const { checkProfesor, checkAlumno } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
 const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones, isAlumno } = require('../../models/lecciones.model')
 
