@@ -1,7 +1,7 @@
 
 const getbyAlumnoId = (alumnoId) => {
     return db.query(
-        'select * from alumnos_has_cursos where alumno_id = ?', [alumnoId]
+        'select * from alumnos_has_cursos as ac join cursos c on c.id = ac.cursos_id where ac.alumno_id = ?', [alumnoId]
     )
 }
 const updateProgreso = (newProgress, curso_id, alumno_id) => {
