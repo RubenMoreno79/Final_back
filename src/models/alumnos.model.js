@@ -1,4 +1,4 @@
-const insertAlumnos = (usuarios_id, { foto, campoInteres }) => {
+const insertAlumnos = ({ usuarios_id, foto, campoInteres }) => {
     return db.query(
         'insert into alumnos (usuarios_id, foto, campoInteres) values (?,?,?)', [usuarios_id, foto, campoInteres]
     )

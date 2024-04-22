@@ -1,5 +1,5 @@
 
-const insertProfesores = ({ experiencia, especialidad, foto, descripcion_experiencia }, usuarios_id) => {
+const insertProfesores = ({ experiencia, especialidad, foto, descripcion_experiencia, usuarios_id }) => {
     return db.query(
         'insert into profesores (experiencia, usuarios_id, especialidad,foto, descripcion_experiencia) values (?, ?, ?, ?, ?)', [experiencia, usuarios_id, especialidad, foto, descripcion_experiencia]
     )

@@ -12,7 +12,7 @@ const bcrypt = require('bcrypt');
 router.post('/nuevo', async (req, res) => {
 
     try {
-        const [result] = await insertAlumnos(req.user.id, req.body);
+        const [result] = await insertAlumnos(req.body);
         res.json(result);
     } catch (error) {
         res.json({ fatal: error.message })

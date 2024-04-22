@@ -8,7 +8,7 @@ const router = require('express').Router();
 
 router.post('/nuevo', async (req, res) => {
     try {
-        const [result] = await insertProfesores(req.body, req.user.id);
+        const [result] = await insertProfesores(req.body);
         res.json(result);
     } catch (error) {
         res.json(error)
