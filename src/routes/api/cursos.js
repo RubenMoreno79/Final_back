@@ -1,11 +1,20 @@
 const router = require('express').Router();
 const { checkProfesor, checkToken } = require('../../helpers/middlewares');
-const { insert, edit, getCurso, borrar, isProfesor, getAll, getByCategory } = require('../../models/cursos.model')
+const { insert, edit, getCurso, borrar, isProfesor, getAll, getByCategory, getAllCursosFromProfesor } = require('../../models/cursos.model')
 
 
 router.get('/', async (req, res) => {
     try {
         const [result] = await getAll()
+        res.json(result)
+    } catch (error) {
+        res.json(error)
+    }
+});
+
+router.get('/getbyprofesor', checkToken, checkProfesor, async (req, res) => {
+    try {
+        const [result] = await getAllCursosFromProfesor(req.user.id)
         res.json(result)
     } catch (error) {
         res.json(error)
@@ -75,6 +84,7 @@ router.delete('/:cursoId', checkToken, checkProfesor, async (req, res) => {
     }
 
 });
+
 
 
 

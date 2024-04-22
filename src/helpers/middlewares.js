@@ -41,5 +41,11 @@ const checkAlumno = async (req, res, next) => {
     return res.status(401).json({ fatal: 'Tienes que ser alumno para acceder' })
 }
 
+const checkAdmin = (req, res, next) => {
+    if (req.user.rol === 'admin') {
+        return next()
+    }
+}
 
-module.exports = { checkToken, checkProfesor, checkAlumno }
+
+module.exports = { checkToken, checkProfesor, checkAlumno, checkAdmin }

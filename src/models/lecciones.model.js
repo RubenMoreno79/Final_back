@@ -1,12 +1,12 @@
-const insertLeccion = ({ imagen, video, texto }, curso_id) => {
+const insertLeccion = ({ imagen, video, texto, tema, leccion }, curso_id) => {
     return db.query(
-        'insert into lecciones (imagen, video, texto, curso_id) values (?,?,?,?)', [imagen, video, texto, curso_id]
+        'insert into lecciones (imagen, video, texto,tema, leccion, curso_id) values (?,?,?,?,?,?)', [imagen, video, texto, tema, leccion, curso_id]
     )
 }
 
-const editLeccion = ({ imagen, video, texto }, leccion_id) => {
+const editLeccion = ({ imagen, video, texto, tema, leccion }, leccion_id) => {
     return db.query(
-        'update lecciones set imagen =?, video =?, texto =? where id = ?', [imagen, video, texto, leccion_id]
+        'update lecciones set imagen =?, video =?, texto =?, tema =?, leccion=? where id = ?', [imagen, video, texto, tema, leccion, leccion_id]
     )
 }
 const getLeccion = (leccion_id) => {

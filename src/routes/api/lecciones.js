@@ -82,7 +82,7 @@ router.get('/all/alumnos/:curso_id', checkAlumno, async (req, res) => {
     }
 });
 
-router.get('/all/profesores/:curso_id', async (req, res) => {
+router.get('/all/profesores/:curso_id', checkProfesor, async (req, res) => {
     const { curso_id } = req.params
     const [result2] = await isProfesor(curso_id, req.user.id)
     if (result2 !== 0) {
