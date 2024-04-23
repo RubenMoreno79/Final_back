@@ -29,4 +29,10 @@ const getAllCursosFromProfesor = (profesorId) => {
     )
 }
 
-module.exports = { insert, edit, borrar, getCurso, isProfesor, getAll, getByCategory, getAllCursosFromProfesor }
+const getProfesorId = (userId) => {
+    return db.query(
+        'select * from profesores where usuarios_id =?', [userId]
+    )
+}
+
+module.exports = { insert, edit, borrar, getCurso, isProfesor, getAll, getByCategory, getAllCursosFromProfesor, getProfesorId }

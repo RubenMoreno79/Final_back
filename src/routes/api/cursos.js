@@ -1,6 +1,6 @@
 const router = require('express').Router();
 const { checkProfesor, checkToken } = require('../../helpers/middlewares');
-const { insert, edit, getCurso, borrar, isProfesor, getAll, getByCategory, getAllCursosFromProfesor } = require('../../models/cursos.model')
+const { insert, edit, getCurso, borrar, isProfesor, getAll, getByCategory, getAllCursosFromProfesor, getProfesorId } = require('../../models/cursos.model')
 
 
 router.get('/', async (req, res) => {
@@ -13,8 +13,9 @@ router.get('/', async (req, res) => {
 });
 
 router.get('/getbyprofesor', checkToken, checkProfesor, async (req, res) => {
+    const [result2] = await getProfesorId(req.user.id)
     try {
-        const [result] = await getAllCursosFromProfesor(req.user.id)
+        const [result] = await getAllCursosFromProfesor(result2[0].id)
         res.json(result)
     } catch (error) {
         res.json(error)
