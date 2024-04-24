@@ -4,14 +4,22 @@ const { checkProfesor, checkAlumno } = require('../../helpers/middlewares');
 const { isProfesor } = require('../../models/cursos.model');
 const { insertLeccion, editLeccion, getLeccion, borrarLeccion, getCursoId, getAllLecciones, isAlumno } = require('../../models/lecciones.model')
 
-router.post('/new/:idCurso', checkProfesor, async (req, res) => {
+router.post('/new/:idCurso/', checkProfesor, async (req, res) => {
     const { idCurso } = req.params
-    try {
-        const [result] = await insertLeccion(req.body, idCurso)
-        res.json(result)
-    } catch (error) {
-        res.json(error)
+    const [result2] = await isProfesor(idCurso, req.profesor.id)
+
+    if (result2.length !== 0) {
+        try {
+            const [result] = await insertLeccion(req.body, idCurso)
+            res.json(result)
+        } catch (error) {
+            res.json(error)
+        }
+    } else {
+        res.json({ fatal: 'No tienes permiso para crear una nueva leccion en este curso' })
     }
+
+
 });
 router.put('/update/:idLeccion', checkProfesor, async (req, res) => {
     const { idLeccion } = req.params

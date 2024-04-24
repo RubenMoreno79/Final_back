@@ -23,9 +23,10 @@ router.get('/getbyprofesor', checkToken, checkProfesor, async (req, res) => {
 });
 
 
-router.get('/category', async (req, res) => {
+router.get('/category/:categoria', async (req, res) => {
+
     try {
-        const [result] = await getByCategory(req.body.categoria)
+        const [result] = await getByCategory(req.params.categoria)
         res.json(result)
     } catch (error) {
         res.json(error)
