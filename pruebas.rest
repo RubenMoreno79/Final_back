@@ -1,247 +1,41 @@
-@port = 3000
-@host = http://localhost:{{port}}
+@port = 3040
 
 
 ###
-POST {{host}}/api/usuarios/registro
+GET http://localhost:3040/api/proyectos/
+###
+http://localhost:3040/api/proyectos/6635161d2873cbebb2130a2e
+
+
+###
+GET http://localhost:3040/api/proyectos/categoria/nojdejs
+
+###
+POST http://localhost:3040/api/proyectos/
 Content-Type: application/json
 
 {
-    "username": "pere",
-    "email":"pere8@gmail.com",
-    "password":"12345",
-    "rol": "profesor",
-    "nombre": "ruben",
-    "apellidos":"moreno",
-    "fecha_nacimiento":"2000/02/02",
-    "genero": "m" ,
-    "telefono": "6177171"
+   "titulo": " Ecommerce",
+    "descripcion":"El proyecto consiste en el desarrollo de una tienda online con javaScript ",
+    "url":"https://github.com/Aileen538/pruebaTien",
+    "cliente":"Proyecto personal",
+    "url_cliente":"https://github.com/Aileen538/pruebaTien",
+    "categoria":"javaScript"
 }
 
 ###
-PUT {{host}}/api/alumnos/editar
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
+PUT  http://localhost:3040/api/proyectos/6638caccd216fa15f9b1bfd
 Content-Type: application/json
 
 {
-    "username": "pere",
-    "password":"12345",
-    "rol": "alumno",
-    "nombre": "ruben",
-    "apellidos":"moreno",
-    "fecha_nacimiento":"2000/02/02",
-    "genero": "m" ,
-    "telefono": "6177171",
-    "foto": "prueba de foto",
-    "campoInteres": "prueba dedsfaaaaaaa interes"
-
+    "titulo": "Proyecto API",
+    "descripcion":"El proyecto consiste en el desarrollo de una API REST para gestionar el contenido de un portafolio personal en línea. La API permitirá a los usuarios mostrar proyectos mediante peticiones ",
+    "url":"https://github.com/Aileen538",
+    "cliente":"Proyecto personal",
+    "url_cliente":"https://github.com/Aileen538",
+    "categoria":"nodejs",
+    "tecnologia":"nodejs"
 }
 ###
-GET {{host}}/api/usuarios/registro
+DELETE http://localhost:3040/api/proyectos/
 
-###
-POST {{host}}/api/usuarios/login
-Content-Type: application/json
-
-{
-    "email": "pere6@gmail.com",
-    "password": "12345"
-}
-
-###
-POST {{host}}/api/cursos/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-Content-Type: application/json
-
-{
-    "nombre": "Desarrollo personal",
-    "horas": "140",
-    "categoria": "Bienestar personal",
-    "imagen": "Prueba",
-    "descripcion": "Hola que tal estais mis amiguis",
-    "contenido": "prueba de contenido para ver que funciona correctamente"
-}
-
-###
-PUT {{host}}/api/cursos/7
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
-Content-Type: application/json
-
-{
-    "nombre": "Confdsaion",
-    "horas": "140",
-    "categoria": "Bienestar personal",
-    "imagen": "Prueba",
-    "descripcion": "Hola que tal estais mis amsadas",
-    "contenido": "prueba de contenido para ver que funciona correctamente"
-}
-###
-GET {{host}}/api/cursos/
-
-###
-GET {{host}}/api/cursos/category
-Content-Type: application/json
-
-{
-    "categoria": "Cantar"
-}
-
-###
-DELETE {{host}}/api/cursos/6
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
-
-###
-POST {{host}}/api/profesores/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-Content-Type: application/json
-
-{
-    "experiencia": 5
-}
-
-###
-PUT {{host}}/api/profesores/editar
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
-Content-Type: application/json
-
-{
-    "experiencia": 10,
-    "username": "pepi", 
-    "email": "pei@gmail.com", 
-    "password": "00000", 
-    "rol": "profesor", 
-    "nombre": "pepita", 
-    "apellidos": "grilla", 
-    "fecha_nacimiento": "1979/03/01", 
-    "genero": "m", 
-    "telefono": "369363636"
-}
-
-###
-DELETE {{host}}/api/profesores/borrar
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMTg5OTU5fQ.JSu_7aoHItfMXUqyJcaMM_kqOvw1PRU-eVPOpJY29yQ
-
-###
-POST {{host}}/api/lecciones/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
-Content-Type: application/json
-
-{
-    "imagen": "Hola",
-    "video": "hola2",
-    "texto": "hola3"
-}
-###
-
-POST {{host}}/api/lecciones/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzQyNDcwfQ.2TCGE5XuirsCZySNjj9sYv1OJTJ6eB-Bzm0aGucq5H4
-Content-Type: application/json
-
-{
-    "imagen": "Hola",
-    "video": "hola2",
-    "texto": "hola3"
-}
-###
-PUT {{host}}/api/lecciones/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6NCwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTMyNTU4Mjh9.mXdXYdpSVc1PoehcMngzeFgUkUce8ACDKRDapl1R7Vs
-Content-Type: application/json
-
-{
-    "imagen": "Holfsdsfsdfds32",
-    "video": "hol32a2",
-    "texto": "hol3232a3"
-}
-###
-GET {{host}}/api/lecciones/1
-###
-DELETE {{host}}/api/lecciones/1
-
-
-###
-POST {{host}}/api/preguntas/nuevo
-Content-Type: application/json
-
-{
-    "titulo": "holita",
-    "respuesta_correcta": "si",
-    "respuesta_incorrecta": "no",
-    "respuesta_incorrecta2": "no2"
-}
-
-###
-DELETE {{host}}/api/preguntas/1
-###
-POST {{host}}/api/alumnos/nuevo
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-Content-Type: application/json
-
-{
-    "foto": "prueba2"
-}
-
-###
-GET {{host}}/api/alumnoscursos/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6Nywicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDIyfQ.U8Va6Fz4cyw0OgPj2ykXrzun_6qgXL0X3jyM3pQq-Tk
-###
-GET {{host}}/api/alumnoscursos/todos
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-PUT {{host}}/api/alumnoscursos/newprogress/40/7
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-PUT {{host}}/api/alumnoscursos/finish
-###
-PUT {{host}}/api/alumnoscursos/nota/8/10
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-GET {{host}}/api/alumnos/alumno
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-GET {{host}}/api/lecciones/all/2
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-POST {{host}}/api/alumnoscursos/nuevo/10
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-GET {{host}}/api/alumnoscursos/info/8
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-POST {{host}}/api/preguntas/nuevo/11
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-Content-Type: application/json
-
-{
-    "titulo": "Preguntas de examen",
-    "enunciado": "Esto es un enunciado",
-    "respuesta_correcta": "esta bien",
-    "respuesta_incorrecta1": "esta mal",
-    "respuesta_incorrecta2": "esta mal",
-    "respuesta_incorrecta3": "esta mal"
-}
-###
-DELETE {{host}}/api/preguntas/borrar/9
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-###
-PUT {{host}}/api/preguntas/editar/10
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-Content-Type: application/json
-
-{
-    "titulo": "Preguntas de editada",
-    "respuesta_correcta": "esta 333bien",
-    "respuesta_incorrecta": "esta 3333mal",
-    "respuesta_incorrecta2": "esta333333 mal"
-}
-###
-GET {{host}}/api/alumnos/alumno
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-GET {{host}}/api/preguntas/all/alumnos/10
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OCwicm9sIjoiYWx1bW5vIiwiaWF0IjoxNzEzMzYwNDc0fQ.1pxRju5yIvmWgDlMBmTfvQ7Rf99dyEDec07KTA_-TuU
-###
-GET {{host}}/api/preguntas/all/profesores/11
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho
-###
-GET {{host}}/api/cursos/getbyprofesor
-Authorization: eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6OSwicm9sIjoicHJvZmVzb3IiLCJpYXQiOjE3MTM0NDYwODd9.Mdlp1SsTh3tn2SULreV5GhGQ_cS9jbovUPqKfSpg5Ho

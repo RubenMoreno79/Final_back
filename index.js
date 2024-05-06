@@ -10,7 +10,7 @@ require('./src/config/db')
 // Creación server
 const server = http.createServer(app);
 
-const PORT = process.env.PORT || 3000;
+const PORT = process.env.PORT || 3040;
 server.listen(PORT);
 
 // Listeners
