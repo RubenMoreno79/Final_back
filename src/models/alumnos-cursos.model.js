@@ -9,6 +9,8 @@ const updateProgreso = (newProgress, curso_id, alumno_id) => {
         'update alumnos_has_cursos set progreso =? where cursos_id  = ? and alumno_id =?', [newProgress, curso_id, alumno_id]
     )
 }
+
+
 const updateFinalizado = (curso_id, alumno_id) => {
     return db.query(
         'update alumnos_has_cursos set finalizado = ? where cursos_id = ? and alumno_id = ? ', [1, curso_id, alumno_id]
